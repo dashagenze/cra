@@ -1,0 +1,10 @@
+.picture {
+  height: 400px;
+  object-fit: contain;
+  box-shadow: slategray 2px 2px 30px;
+  margin: 30px 30px 30px 200px;
+}
+
+.margin {
+  margin: 20px;
+}
