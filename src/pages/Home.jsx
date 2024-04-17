@@ -1,11 +1,14 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-
-import NameForm from "../components/NameForm";
-import Button from "../components/Button";
-import Welcome from "../components/createh1";
-import programmer from './assets/programmer.jpg';
+import {Link} from 'react-router-dom';
 import '../App.css'
+import programmer from '../assets/programmer.jpg';
+import cartImg from '../assets/shopping_cart.png'
+import Draggable from "react-draggable";
+import Welcome from "../components/createh1";
+import Search from "../components/Search";
+import ItemsList from "../components/ItemsList";
+
+
 
 class Page1 extends React.Component {
 
@@ -15,22 +18,20 @@ class Page1 extends React.Component {
                 <div>
                     <Welcome/>
                 </div>
-                <img src={programmer}/>
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to="/glasses">Компьютерные очки Xiaomi</Link>
-                        </li>
-                        <li>
-                            <Link to="/macbook">Macbook</Link>
-                        </li>
-                        <li>
-                            <Link to="/hoodie">Черная Толстовка</Link>
-                        </li>
-                    </ul>
-                </nav>
-                {/*<NameForm/>*/}
-                {/*<Button/>*/}
+
+                <div className={'cartIcon'}>
+                    <Link to={'/cart'}>
+                        <img style={{width: '100px'}} src={cartImg}/>
+                        <p>Корзина</p>
+                    </Link>
+                </div>
+
+                <Search/>
+
+                <img src={programmer} className={'progPic'}/>
+
+                <ItemsList/>
+
             </div>
         )
     }
