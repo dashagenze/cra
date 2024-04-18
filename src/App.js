@@ -20,7 +20,7 @@ const App = () => {
         <div>
             <BrowserRouter>
                 <Routes>
-                    <Route path='/cart' element={<Cart/>}/>
+                    <Route path='/cart' element={<Cart />}/>
                     <Route path="/" element={<Home />} />
                     <Route path=":id" element={<ItemPage />} />
                     <Route path="/error/404" element={<Error />} />

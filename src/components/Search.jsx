@@ -22,6 +22,7 @@ const Search = () => {
             .catch(e=> console.log(e))
     }, []);
 
+    //todo переписать поиск с модификацией строки запроса
 
     const newMarkup = () => {
         return (

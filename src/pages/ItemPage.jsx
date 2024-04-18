@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import '../App.css'
 import Button from "../components/Button";
-import { useNavigate, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 const LINKTOCART = 'http://localhost:3000/CartItems/'
 const LINK = 'http://localhost:3000/ItemsData/'
 
@@ -71,6 +71,7 @@ const ItemPage = () => {
 
     return (
         <div className={'margin'}>
+            <Link className={'btn margin'} to='/'>Вернуться на главную</Link>
             <div>
                 <div>
                     <img src={item.img} className={'picture'}/>
