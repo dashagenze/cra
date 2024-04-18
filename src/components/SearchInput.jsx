@@ -11,7 +11,7 @@ const SearchInput = ( {searchValue, setValue}) => {
                         onChange={(e) => {
                             setValue(e.target.value)
                         }}
-                        placeholder="xiaomi"/>
+                        placeholder="Xiaomi"/>
                 </form>
             </search>
 

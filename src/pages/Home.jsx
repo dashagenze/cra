@@ -6,7 +6,6 @@ import Draggable from "react-draggable";
 import Welcome from "../components/createh1";
 import Search from "../components/Search";
 import ItemsList from "../components/ItemsList";
-const LINK = 'http://localhost:3000/ItemsData/'
 
 
 const Page1 = () => {
@@ -18,16 +17,15 @@ const Page1 = () => {
 
             <img src={programmer} className={'progPic'}/>
 
-            <h2>Товары:</h2>
+            <Search/>
+
+            <h1>Товары:</h1>
             <div className={'cartIcon'}>
                 <Link className={'hover'} to={'/cart'}>
                     <img src={cartImg}/>
                     <p>Корзина</p>
                 </Link>
             </div>
-
-            {/*<Search/>*/}
-
 
             <ItemsList/>
 

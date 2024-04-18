@@ -16,6 +16,10 @@ body {
   background-size: cover;
 }
 
+.searchField {
+  background-color: #d4ddea;
+  padding: 2px;
+}
 
 .margin {
   margin: 20px;
@@ -47,6 +51,7 @@ body {
 .progPic {
   display: block;
   width: 30%;
+  margin: 10px;
 }
 
 .flexItem h3 {

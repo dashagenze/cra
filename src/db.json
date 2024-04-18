@@ -28,15 +28,7 @@
       "title": " \"13,3\" Ноутбук Apple MacBook Air M1/8/256 ГБ MGN63 серый",
       "price": 74670,
       "img": "/static/media/macbook.fac065ef52f3f3fb794a.jpg",
-      "amount": 2,
-      "isInCart": true
-    },
-    {
-      "id": "3",
-      "title": "Черная толстовка как у мистера Робота",
-      "price": 3886,
-      "img": "/static/media/hoodie.2a164628e082a0353f61.jpg",
-      "amount": 2,
+      "amount": 1,
       "isInCart": true
     }
   ]

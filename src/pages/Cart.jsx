@@ -1,6 +1,6 @@
 import '../App.css'
 import {Link, useNavigate} from "react-router-dom";
-import React, {createContext, useContext, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Item from "../components/Item";
 import Button from "../components/Button";
 
@@ -31,38 +31,18 @@ const Cart = () => {
         fetch(LINKTOCART)
             .then(response => response.json())
             .then(result => {
-                console.log(cartItems)
-
                 if (!cartItems.length) {
                     navigate('/error/emptycart')
                 }
 
                 setTotal(cartItems.reduce((totalPrice,currentItem) => {
-                    console.log(currentItem)
-                    console.log(currentItem.price)
-                    console.log(currentItem.amount)
                     totalPrice += (currentItem.price * currentItem.amount)
-                    console.log(totalPrice)
                     return totalPrice
                 }, initialValue))
 
             })
             .catch(e=> console.log(e))
     }, [cartItems]);
-
-    useEffect(() => {
-        fetch(LINKTOCART)
-            .then(response => response.json())
-            .then(result => {
-                console.log(cartItems)
-                console.log(total)
-
-
-            })
-            .catch(e=> console.log(e))
-
-
-    }, [total]);
 
 
 const removeFromCart = async (id) => {

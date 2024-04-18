@@ -1,16 +1,27 @@
 import {Link} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import SearchInput from "./SearchInput";
+import '../App.css'
+
 const ITEMSDATA = 'http://localhost:3000/ItemsData'
 
 
 const Search = () => {
     const [value, setValue] = useState('')
-    const [markup, setMarkup] = useState((
-        <></>
-    ))
     const [itemsList, setItemsList] = useState(null)
 
+    useEffect(() => {
+        fetch(ITEMSDATA+'?title_like='+value)
+            .then(response => response.json())
+            .then(result => {
+                console.log(itemsList)
+            })
+            .catch(e=> console.log(e))
+    }, [ITEMSDATA]);
+
+    // example  http://localhost:3000/customer?name_like=rist
+
+    //получить все товары
     useEffect(() => {
         fetch(ITEMSDATA)
             .then(response => response.json())
@@ -22,31 +33,25 @@ const Search = () => {
             .catch(e=> console.log(e))
     }, []);
 
-    //todo переписать поиск с модификацией строки запроса
+    return (
+        <div className={'searchField'}>
+            <h2 >Найти товар:</h2>
+            <SearchInput searchValue={value} setValue={setValue}/>
 
-    const newMarkup = () => {
-        return (
-            <>
-                {itemsList.map((item, index) => {
+            <ul>
+                {itemsList && itemsList.map((item) => {
                     console.log(item.title)
                     if (item.title.includes(value) && value !== '') {
-                        return (
-                            <div key={index}>
-                                <Link to='/cart'>{item.title}</Link>
-                            </div>
-                        )}
+                    return (
+                        <li key={item.id}>
+                            <Link to='/:id'>{item.title}</Link>
+                        </li>
+                    )}
                 })}
-            </>
-        )
-    }
+            </ul>
 
-    return (
-        <>
-            <h2>Найти товар</h2>
-            <SearchInput searchValue={value} setValue={setValue}/>
-            {markup}
-            <button onClick={() => setMarkup(newMarkup)}>find an item</button>
-        </>
+            {/*<button >find an item</button>*/}
+        </div>
     )
 }
 
