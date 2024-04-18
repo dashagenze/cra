@@ -1,9 +1,9 @@
 import React from "react";
-
+import '../App.css';
 const Button = (props) => {
 
     return (
-        <button onClick={props.press}>{props.purpose}</button>
+        <button className={'btn'} style={props.style} onClick={props.press}>{props.purpose}</button>
     )
 
 }

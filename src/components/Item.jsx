@@ -1,11 +1,10 @@
+import '../App.css';
 const Item = (props) => {
     return (
-        <div>
-            <img src={props.src}/>
+        <div className=''>
+            <img src={props.src} className={'itemIcon'}/>
             <h3>{props.name}</h3>
-            <h3>{props.amount}</h3>
-            <h3>{props.price}</h3>
-            <hr></hr>
+            <h3 style={{fontStyle: 'italic'}}>{props.price}₽</h3>
         </div>
     )
 }

@@ -20,16 +20,15 @@ const ItemPage = () => {
             if(!itemId) return
             fetch(LINK + itemId)
                 .then(response => {
-                    // навигейтим на страницу с ошибкой
                     if (response.status === 404) navigate('/error/404')
                     return response.json();
+
                 })
                 .then(result => {
                     setItem(result)
                     setAmount(item.amount)
                 })
-            // ошибка, которую не обработали выше
-        } catch (e) {navigate('/error/error')}
+        } catch (e) {navigate('/superError')}
     }, [itemId]);
 
 
@@ -81,6 +80,7 @@ const ItemPage = () => {
             </div>
 
             <Button press={() => addItemToCart()} purpose={'ДОБАВИТЬ В КОРЗИНУ'}/>
+            <Button press={()=> navigate('/cart')} purpose={'ПЕРЕЙТИ К КОРЗИНЕ'}/>
         </div>
     )
 }

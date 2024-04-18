@@ -1,4 +1,3 @@
-import React from "react";
 import {Link} from 'react-router-dom';
 import '../App.css'
 import programmer from '../assets/programmer.jpg';
@@ -7,34 +6,34 @@ import Draggable from "react-draggable";
 import Welcome from "../components/createh1";
 import Search from "../components/Search";
 import ItemsList from "../components/ItemsList";
+const LINK = 'http://localhost:3000/ItemsData/'
 
 
-
-class Page1 extends React.Component {
-
-    render() {
-        return (
-            <div className={'margin'}>
-                <div>
-                    <Welcome/>
-                </div>
-
-                <div className={'cartIcon'}>
-                    <Link to={'/cart'}>
-                        <img style={{width: '100px'}} src={cartImg}/>
-                        <p>Корзина</p>
-                    </Link>
-                </div>
-
-                {/*<Search/>*/}
-
-                <img src={programmer} className={'progPic'}/>
-
-                <ItemsList/>
-
+const Page1 = () => {
+    return (
+        <div className={'margin'}>
+            <div>
+                <Welcome/>
             </div>
-        )
-    }
+
+            <img src={programmer} className={'progPic'}/>
+
+            <h2>Товары:</h2>
+            <div className={'cartIcon'}>
+                <Link className={'hover'} to={'/cart'}>
+                    <img src={cartImg}/>
+                    <p>Корзина</p>
+                </Link>
+            </div>
+
+            {/*<Search/>*/}
+
+
+            <ItemsList/>
+
+        </div>
+    )
+
 }
 
 export default Page1

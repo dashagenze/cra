@@ -26,12 +26,12 @@ const Search = () => {
     const newMarkup = () => {
         return (
             <>
-                {itemsList.map((entry, index) => {
-                    console.log(entry.title)
-                    if (entry.title.includes(value) && value !== '') {
+                {itemsList.map((item, index) => {
+                    console.log(item.title)
+                    if (item.title.includes(value) && value !== '') {
                         return (
                             <div key={index}>
-                                <Link to={entry.link}>{entry.title}</Link>
+                                <Link to='/cart'>{item.title}</Link>
                             </div>
                         )}
                 })}

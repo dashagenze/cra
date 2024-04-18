@@ -20,13 +20,14 @@ const ItemsList = () => {
     return (
         <ul>
             {itemsList && itemsList.map((item) => {
+
                 return (
                     <div key={item.id}>
-                        <li>
+                        <li className={'flexItem'}>
                             <img src={item.img} className={'itemIcon'}/>
-                            <Link to={item.id}>{item.title}</Link>
+                            <Link className={'hover'} to={'/'+item.id}>{item.title}</Link>
                         </li>
-                        <hr className={'hr'}></hr>
+                        <hr/>
                     </div>
                 )
             })}

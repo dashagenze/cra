@@ -1,73 +1,89 @@
 import '../App.css'
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import React, {createContext, useContext, useEffect, useState} from "react";
 import Item from "../components/Item";
+import Button from "../components/Button";
 
-;
 const LINKTOCART = 'http://localhost:3000/CartItems'
 const Cart = () => {
 
     const [cartItems, setCartItems] = useState(null);
+    const [total, setTotal] = useState(null);
+    const navigate = useNavigate();
 
 
     useEffect(() => {
         fetch(LINKTOCART)
             .then(response => response.json())
-            // .then(json=> {console.log(json)})
             .then(result => {
                 setCartItems(result)
                 console.log(cartItems)
+
+                // {cartItems && cartItems.map((item) => {
+                //     setTotal(total + item.price)
+                // })}
             })
             .catch(e=> console.log(e))
     }, []);
 
+    useEffect(() => {
+        fetch(LINKTOCART)
+            .then(response => response.json())
+            .then(result => {
+                console.log(cartItems)
 
-    return (
-        <div>
-
-            {cartItems && cartItems.map((item, index) => {
-
-                if (item.amount > 0) {
-                    return(
-                        <>
-                            <p>{item.amount}</p>
-                            <Item key={index}
-                                  name={item.name}
-                                  price={item.price * item.amount}
-                                  amount={item.amount}
-                                  src={item.src}/>
-                        </>
-                    )
+                if (!cartItems.length) {
+                    navigate('/error/emptycart')
                 }
 
+            })
+            .catch(e=> console.log(e))
+    }, [cartItems]);
 
-                // <p>{}</p>
-            })}
-            {/*<Button press={()=> {}}/>*/}
-            {/*<> {list.map((entry, index) => (*/}
-            {/*    <div>*/}
-            {/*        <input*/}
-            {/*            className={'checked'}*/}
-            {/*            type="checkbox"*/}
-            {/*        />*/}
-            {/*        <label key={index}>{entry}</label>*/}
-            {/*        <button className={'btn'} onClick={()=> remove(entry)}>убрать</button>*/}
-            {/*    </div>*/}
-            {/*))}*/}
 
-            {/*</>*/}
+const removeFromCart = async (id) => {
+    await fetch(LINKTOCART+'/'+id, {
+        method: 'DELETE'
+    })
+        .then(r => r.json())
+        .then(newItems => {
+            fetch(LINKTOCART)
+                .then(r => r.json())
+                .then(r => setCartItems(r))
+                .catch(e=> console.log(e))
 
-            {/*{ItemsData.map((entry, index) => {*/}
-            {/*    console.log(entry.title)*/}
-            {/*    return (*/}
-            {/*        <ul>*/}
-            {/*            <li key={index}>*/}
-            {/*                /!*<Item />*!/*/}
-            {/*            </li>*/}
-            {/*            <hr className={'hr'}></hr>*/}
-            {/*        </ul>*/}
-            {/*    )*/}
-            {/*})}*/}
+        })
+        .catch(e=> console.log(e))
+}
+    return (
+        <div>
+            <Link to='/' className={'btn margin'}>Вернуться на главную</Link>
+
+            <ul>
+                {cartItems && cartItems.map((item) => {
+                    if (item.isInCart) {
+                        return (
+                            <div key={item.id} className={''}>
+                                <Item
+                                    name={item.title}
+                                    price={item.price * item.amount}
+                                    amount={item.amount}
+                                    src={item.img}/>
+                                <p>x{item.amount}</p>
+                                <Button style={{width: '100px', height: '50px'}} purpose={'убрать'} press={() => {
+                                    removeFromCart(item.id)
+                                }}/>
+                                <hr/>
+                            </div>
+                        )
+                    }
+                })}
+            </ul>
+            <hr/>
+            <div className={'flexItem'} style={{width: '500px'}}>
+                <h3 style={{display: 'block'}}>Итого: {total}</h3>
+                <Button purpose={'перейти к оплате'} press={() => alert('coming soon!')}/>
+            </div>
 
         </div>
     )

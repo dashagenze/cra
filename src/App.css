@@ -1,9 +1,23 @@
+
+* {
+  font-family: "Raleway", sans-serif;
+  color: #333;
+}
+
 .picture {
   height: 400px;
   object-fit: contain;
   box-shadow: slategray 2px 2px 30px;
   margin: 30px 30px 30px 200px;
 }
+
+
+body {
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background-size: cover;
+}
+
+
 
 .margin {
   margin: 20px;
@@ -23,6 +37,13 @@
 
 .btn {
   margin-left: 7px;
+  width: 150px;
+  height: 80px;
+  font-size: 20px;
+  background-color: #c3cfe2;
+}
+.btn:hover {
+  background-color: darkseagreen;
 }
 
 .progPic {
@@ -30,18 +51,45 @@
   width: 30%;
 }
 
-.hr {
-  text-align: left;
+.flexItem h3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.hover {
+  text-decoration: none;
+}
+.hover:hover {
+  color: forestgreen;
+}
+
+.flexItem {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
 }
 
 .itemIcon {
-  width: 10%;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-right: 20px;
 }
 
 .cartIcon {
-  width: 100px;
+  width: 150px;
   cursor: pointer;
   position: fixed;
   right: 5%;
+  top: 5%;
   text-align: center;
+  background-color: #c3cfe2;
+  border: solid 4px slategray;
+  border-radius: 40px;
+}
+.cartIcon img {
+  width: 80px;
+  padding-top: 20px;
 }
