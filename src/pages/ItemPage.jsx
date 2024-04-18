@@ -40,8 +40,6 @@ const ItemPage = () => {
             const test = {amount: data.amount};
                 if (response.status === 200) {
                     test.amount = test.amount+1
-                    console.log(amount+1)
-
                     await fetch(LINKTOCART+itemId, {
                         method: 'PATCH',
                         body: JSON.stringify(test),
@@ -53,26 +51,23 @@ const ItemPage = () => {
                         .then(r => console.log(r))
                         .catch(e => console.log(e))
                 }
-                else if (response.status === 404) {
 
-                    await fetch(LINKTOCART, {
-                        method: 'POST',
-                        body: JSON.stringify({
-                            title: item.title,
-                            price: item.price,
-                            img: item.img,
-                            id: item.id,
-                            amount: 1,
-                            isInCart: true
-                        }),
-                        headers: {
-                            'Content-type': 'application/json; charset=UTF-8',
-                        }
-                    })
-                        .catch(e => console.log(e))
+        } catch (e) {
+            await fetch(LINKTOCART, {
+                method: 'POST',
+                body: JSON.stringify({
+                    title: item.title,
+                    price: item.price,
+                    img: item.img,
+                    id: item.id,
+                    amount: 1,
+                    isInCart: true
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
                 }
-
-        } catch (e) { console.log(e)}
+            })
+        }
     }
 
     return (
