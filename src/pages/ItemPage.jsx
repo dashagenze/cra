@@ -1,54 +1,50 @@
-import React, {useEffect, useLayoutEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import '../App.css'
 import Button from "../components/Button";
-import {Link, Navigate, useParams} from "react-router-dom";
-import Error from "../components/Error";
+import { useNavigate, useParams} from "react-router-dom";
 const LINKTOCART = 'http://localhost:3000/CartItems/'
 const LINK = 'http://localhost:3000/ItemsData/'
 
 const ItemPage = () => {
 
     const [item, setItem] = useState('');
-    const [amount, setAmount] = useState(null)
-
+    const [amount, setAmount] = useState(1)
+    let [itemId, setItemId] = useState(null)
     const params = useParams();
-    const itemId = params.id;
+    const navigate = useNavigate();
 
 
-    useEffect(async () => {
+    useEffect(() => {
+        setItemId(params.id);
         try {
-            await fetch(LINK + itemId)
+            if(!itemId) return
+            fetch(LINK + itemId)
                 .then(response => {
-                    if (response.ok) {
-                        return response.json()
-                    } else if (!item) { return <Navigate to='/error'/>}
+                    // навигейтим на страницу с ошибкой
+                    if (response.status === 404) navigate('/error/404')
+                    return response.json();
                 })
                 .then(result => {
-                    console.log(result)
                     setItem(result)
                     setAmount(item.amount)
-
-
-                    console.log('kkk')
-                    return item
                 })
-                .catch(e => console.log(e))
-        } catch (e) {console.log(e)}
-
+            // ошибка, которую не обработали выше
+        } catch (e) {navigate('/error/error')}
     }, [itemId]);
 
 
     const addItemToCart = async () => {
         try {
             const response = await fetch(LINKTOCART+itemId)
-                if (response.ok) {
-
+            const data = await response.json();
+            const test = {amount: data.amount};
+                if (response.status === 200) {
+                    test.amount = test.amount+1
+                    console.log(amount+1)
 
                     await fetch(LINKTOCART+itemId, {
                         method: 'PATCH',
-                        body: JSON.stringify({
-                            amount: amount,
-                        }),
+                        body: JSON.stringify(test),
                         headers: {
                             'Content-type': 'application/json; charset=UTF-8',
                         }
@@ -57,7 +53,7 @@ const ItemPage = () => {
                         .then(r => console.log(r))
                         .catch(e => console.log(e))
                 }
-                else if (!response.ok) {
+                else if (response.status === 404) {
 
                     await fetch(LINKTOCART, {
                         method: 'POST',
@@ -92,10 +88,6 @@ const ItemPage = () => {
             <Button press={() => addItemToCart()} purpose={'ДОБАВИТЬ В КОРЗИНУ'}/>
         </div>
     )
-
-
-
-
 }
 
 

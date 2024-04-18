@@ -18,19 +18,19 @@ const ItemsList = () => {
     }, []);
 
     return (
-        <>
+        <ul>
             {itemsList && itemsList.map((item) => {
                 return (
-                    <ul>
-                        <li key={item.id}>
+                    <div key={item.id}>
+                        <li>
                             <img src={item.img} className={'itemIcon'}/>
                             <Link to={item.id}>{item.title}</Link>
                         </li>
                         <hr className={'hr'}></hr>
-                    </ul>
+                    </div>
                 )
             })}
-        </>
+        </ul>
     )
 }
 

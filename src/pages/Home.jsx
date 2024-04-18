@@ -26,7 +26,7 @@ class Page1 extends React.Component {
                     </Link>
                 </div>
 
-                <Search/>
+                {/*<Search/>*/}
 
                 <img src={programmer} className={'progPic'}/>
 
