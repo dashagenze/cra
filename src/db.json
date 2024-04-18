@@ -20,14 +20,35 @@
       "img": "/static/media/hoodie.2a164628e082a0353f61.jpg",
       "amount": 1,
       "price": 3886
+    },
+    {
+      "id": "4",
+      "title": "Стакан для кофе и чая 360 мл",
+      "img": "/static/media/coffeecup.64c3978400252241b79c.png",
+      "amount": 1,
+      "price": 827
+    },
+    {
+      "id": "5",
+      "title": "Logitech Мышь беспроводная lift vertical, светло-розовый",
+      "img": "/static/media/mouse.ea9bee2279f4002c1700.png",
+      "amount": 1,
+      "price": 7281
+    },
+    {
+      "id": "6",
+      "title": "Витамин Д3 5000 МЕ + К2 50 мкг 60 капсул",
+      "img": "/static/media/d3.79031c2cc24648a3f6ac.png",
+      "amount": 1,
+      "price": 333
     }
   ],
   "CartItems": [
     {
-      "id": "2",
-      "title": " \"13,3\" Ноутбук Apple MacBook Air M1/8/256 ГБ MGN63 серый",
-      "price": 74670,
-      "img": "/static/media/macbook.fac065ef52f3f3fb794a.jpg",
+      "id": "4",
+      "title": "Стакан для кофе и чая 360 мл",
+      "price": 827,
+      "img": "/static/media/coffeecup.64c3978400252241b79c.png",
       "amount": 1,
       "isInCart": true
     }

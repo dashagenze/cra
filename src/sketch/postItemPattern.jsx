@@ -1,21 +1,7 @@
-import React from "react";
 import Button from "../components/Button";
-
-
-class Greetings extends React.Component {
-    render() {
-        return (
-            <div>
-                <h1>БАНЖУР, {this.props.firstName}!!</h1>
-            </div>
-        )
-    }
-}
-
+import coffeecup from '../assets/coffeecup.png';
 
 const post = async () => {
-
-    import coffeecup from '../assets/coffeecup.png';
 
     await fetch(LINK, {
         method: 'POST',
@@ -34,4 +20,3 @@ const post = async () => {
 }
 
 <Button press={()=> post()} purpose={'post'}/>
-export default Greetings

@@ -22,7 +22,15 @@ body {
 }
 
 .margin {
-  margin: 20px;
+  margin: 20px 20px 0;
+}
+
+.footer {
+  width: auto;
+  height: 5em;
+  margin: 10px -100px 0;
+  padding: 20px 100px;
+  background-color: #acb6c6;
 }
 
 .shopList {

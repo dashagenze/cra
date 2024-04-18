@@ -6,32 +6,41 @@ import Draggable from "react-draggable";
 import Welcome from "../components/createh1";
 import Search from "../components/Search";
 import ItemsList from "../components/ItemsList";
+import Button from "../components/Button";
+import React from "react";
 
+// const LINK = 'http://localhost:3000/ItemsData'
 
-const Page1 = () => {
+const Home = () => {
+
     return (
-        <div className={'margin'}>
-            <div>
-                <Welcome/>
+        <div >
+            <div className={'margin'}>
+                <div>
+                    <Welcome/>
+                </div>
+
+                <img src={programmer} className={'progPic'}/>
+
+                <Search/>
+
+                <h1>Товары:</h1>
+                <div className={'cartIcon'}>
+                    <Link className={'hover'} to={'/cart'}>
+                        <img src={cartImg}/>
+                        <p>Корзина</p>
+                    </Link>
+                </div>
+
+                <ItemsList/>
+
+                <div className={'footer'}>
+                    <h4>made by <a href={'https://github.com/dashagenze'}>dasha</a> w💕</h4>
+                </div>
             </div>
-
-            <img src={programmer} className={'progPic'}/>
-
-            <Search/>
-
-            <h1>Товары:</h1>
-            <div className={'cartIcon'}>
-                <Link className={'hover'} to={'/cart'}>
-                    <img src={cartImg}/>
-                    <p>Корзина</p>
-                </Link>
-            </div>
-
-            <ItemsList/>
-
         </div>
     )
 
 }
 
-export default Page1
+export default Home
