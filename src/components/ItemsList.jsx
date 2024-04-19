@@ -24,7 +24,7 @@ const ItemsList = () => {
                 return (
                     <div key={item.id}>
                         <li className={'flexItem'}>
-                            <img src={item.img} className={'itemIcon'}/>
+                            <img src={`/assets/${item.img}`} className={'itemIcon'}/>
                             <Link className={'hover'} to={'/'+item.id}>{item.title}</Link>
                         </li>
                         <hr/>

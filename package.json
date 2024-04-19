@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": " set PORT=3001 && react-scripts start",
-    "start-json": " set PORT=3002 && json-server -w src/db.json",
+    "start-json": "json-server -w src/db.json",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
