@@ -43,22 +43,5 @@
       "price": 333
     }
   ],
-  "CartItems": [
-    {
-      "id": "4",
-      "title": "Стакан для кофе и чая 360 мл",
-      "price": 827,
-      "img": "coffeecup.png",
-      "amount": 1,
-      "isInCart": true
-    },
-    {
-      "id": "1",
-      "title": "Очки для компьютера Xiaomi MiJia Blu-ray Goggles Pro Transparent (HMJ02TS) Clear",
-      "price": 1771,
-      "img": "xiaomi.4c94975dc94662406279.jpg",
-      "amount": 3,
-      "isInCart": true
-    }
-  ]
+  "CartItems": []
 }

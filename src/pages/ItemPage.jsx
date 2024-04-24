@@ -50,6 +50,7 @@ const ItemPage = () => {
                         .then(r => console.log(r))
                         .catch(e => console.log(e))
                 }
+                alert('добавлено!')
 
         } catch (e) {
             await fetch(LINKTOCART, {
@@ -74,7 +75,7 @@ const ItemPage = () => {
             <Link className={'btn margin'} to='/'>Вернуться на главную</Link>
             <div>
                 <div>
-                    <img src={item.img} className={'picture'}/>
+                    <img src={`/assets/${item.img}`} className={'picture'}/>
                     <h1>{item.title}</h1>
                     <h1>{item.price}₽</h1>
                 </div>

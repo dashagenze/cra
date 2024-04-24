@@ -22,7 +22,7 @@ const Home = () => {
 
                 <img src={programmer} className={'progPic'}/>
 
-                <Search/>
+                <Search />
 
                 <h1>Товары:</h1>
                 <div className={'cartIcon'}>

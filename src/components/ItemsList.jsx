@@ -1,25 +1,20 @@
 import {Link} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import '../App.css';
+import useTest from "../hooks/useTest";
 
 const ITEMSDATA = 'http://localhost:3000/ItemsData/';
 
 const ItemsList = () => {
 
-    const [itemsList, setItemsList] = useState(null)
+    let {itemsList} = useTest(ITEMSDATA)
+    console.log(itemsList)
 
-    useEffect(() => {
-        fetch(ITEMSDATA)
-            .then(response => response.json())
-            .then(result => {
-                setItemsList(result)
-            })
-            .catch(e=> console.log(e))
-    }, []);
 
     return (
         <ul>
-            {itemsList && itemsList.map((item) => {
+            {itemsList &&
+                itemsList.map((item) => {
 
                 return (
                     <div key={item.id}>

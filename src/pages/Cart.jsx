@@ -73,7 +73,7 @@ const removeFromCart = async (id) => {
                                     name={item.title}
                                     price={item.price * item.amount}
                                     amount={item.amount}
-                                    src={item.img}/>
+                                    src={`/assets/${item.img}`}/>
                                 <h2>
                                     x{item.amount}
                                     <Button style={{width: '100px', height: '50px'}} purpose={'убрать'} press={() => {

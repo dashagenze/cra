@@ -14,7 +14,6 @@ const Search = () => {
         fetch(ITEMSDATA+'?title_like='+value)
             .then(response => response.json())
             .then(result => {
-                console.log(itemsList)
             })
             .catch(e=> console.log(e))
     }, [ITEMSDATA]);
@@ -28,7 +27,6 @@ const Search = () => {
             // .then(json=> {console.log(json)})
             .then(result => {
                 setItemsList(result)
-                console.log(itemsList)
             })
             .catch(e=> console.log(e))
     }, []);
@@ -40,11 +38,10 @@ const Search = () => {
 
             <ul>
                 {itemsList && itemsList.map((item) => {
-                    console.log(item.title)
                     if (item.title.includes(value) && value !== '') {
                     return (
                         <li key={item.id}>
-                            <Link to='/:id'>{item.title}</Link>
+                            <Link to={'/'+item.id}>{item.title}</Link>
                         </li>
                     )}
                 })}
