@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {memo, useCallback, useState} from "react";
 import '../App.css'
 import TextInput from "../components/TextInput";
 import TasksList from "../components/TasksList";
@@ -8,19 +8,23 @@ const ShopList = () => {
     const [item, setItem] = useState('')
     const [items, setItems] = useState([])
 
-    const addItem = () => {
+    const addItem = useCallback(
+        () => {
             if (item !== '') {
                 setItems([...items, item])
             }
             setItem('')
-    }
+        }, []
+    )
 
-    const removeItem = (text) => {
+    const removeItem = useCallback(
+        (text) => {
         const newItems = items.filter((item) => {
             return item !== text
         })
         setItems(newItems)
-    }
+    }, []
+    )
 
     const checked = (text) => {
         text.style.textDecoration = 'strikethrough'

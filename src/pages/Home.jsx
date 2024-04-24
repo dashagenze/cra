@@ -8,6 +8,9 @@ import Search from "../components/Search";
 import ItemsList from "../components/ItemsList";
 import Button from "../components/Button";
 import React from "react";
+import TasksList from "../components/TasksList";
+import TextInput from "../components/TextInput";
+import ShopList from "./ShopList";
 
 // const LINK = 'http://localhost:3000/ItemsData'
 
@@ -20,6 +23,7 @@ const Home = () => {
                     <Welcome/>
                 </div>
 
+                <ShopList/>
                 <img src={programmer} className={'progPic'}/>
 
                 <Search />

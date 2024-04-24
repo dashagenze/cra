@@ -7,9 +7,12 @@ const ITEMSDATA = 'http://localhost:3000/ItemsData/';
 
 const ItemsList = () => {
 
-    let {itemsList} = useTest(ITEMSDATA)
+    let {itemsList, isLoading} = useTest(ITEMSDATA)
     console.log(itemsList)
 
+    if (isLoading) {
+        return <div>Загружаем товары...</div>;
+    }
 
     return (
         <ul>
