@@ -9,6 +9,7 @@ import Cart from "./pages/Cart";
 import Error from "./pages/Error";
 import UnexpectedError from "./pages/UnexpectedError";
 import EmptyCart from "./pages/EmptyCart";
+import Profile from "./pages/Profile";
 
 
 
@@ -21,6 +22,7 @@ const App = () => {
             <BrowserRouter>
                 <Routes>
                     <Route path='/cart' element={<Cart />}/>
+                    <Route path='/profile' element={<Profile />}/>
                     <Route path="/" element={<Home />} />
                     <Route path=":id" element={<ItemPage />} />
                     <Route path="/error/404" element={<Error />} />

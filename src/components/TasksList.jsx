@@ -5,18 +5,17 @@ const TasksList = ( {list, remove} ) => {
         <>
             {list?.length > 0 ? (
                 <> {list.map((entry, index) => (
-                    <div>
+                    <div key={index}>
                         <input
                             className={'checked'}
                             type="checkbox"
                         />
-                        <label key={index}>{entry}</label>
-                        <button className={'btn'} onClick={()=> remove(entry)}>убрать</button>
+                        <label>{entry}</label>
+                        <button className={'listBtn'} onClick={()=> remove(entry)}>убрать</button>
                     </div>
                 ))}
 
                 </>
-
 
             ) : (
                 <p>добавьте что-то в список покупок!</p>

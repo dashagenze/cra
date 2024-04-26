@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-export default function useTest (url) {
+export default function useFetch (url) {
     const [itemsList, setData] = useState('')
     const [isLoading, setIsLoading] = useState(null)
 
@@ -13,15 +13,12 @@ export default function useTest (url) {
 
             })
             .then(data => {
-                console.log(data)
                 setData(data);
-                console.log(data)
                 setIsLoading(true)
                 return data
             })
             .catch(e=> console.log(e))
     }, [url]);
-    console.log(itemsList)
 
     useEffect(() => {
         return () => setIsLoading(false)

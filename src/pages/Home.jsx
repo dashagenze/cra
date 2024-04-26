@@ -2,12 +2,13 @@ import {Link} from 'react-router-dom';
 import '../App.css'
 import programmer from '../assets/programmer.jpg';
 import cartImg from '../assets/shopping_cart.png'
+import profile from '../assets/profile.png'
 import Draggable from "react-draggable";
 import Welcome from "../components/createh1";
 import Search from "../components/Search";
 import ItemsList from "../components/ItemsList";
 import Button from "../components/Button";
-import React from "react";
+import React, {useState} from "react";
 import TasksList from "../components/TasksList";
 import TextInput from "../components/TextInput";
 import ShopList from "./ShopList";
@@ -16,12 +17,17 @@ import ShopList from "./ShopList";
 
 const Home = () => {
 
+    const [user, setUser] = useState({})
+
     return (
         <div >
             <div className={'margin'}>
                 <div>
-                    <Welcome/>
+                    <img src={profile} className={'profileIcon'}/>
+                    <Link to={'/profile'}>ЛИЧНЫЙ КАБИНЕТ</Link>
                 </div>
+
+                <Welcome name={user.name}/>
 
                 <ShopList/>
                 <img src={programmer} className={'progPic'}/>

@@ -1,35 +1,21 @@
 import {Link} from "react-router-dom";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import SearchInput from "./SearchInput";
 import '../App.css'
+import useFetch from "../hooks/useFetch";
 
 const ITEMSDATA = 'http://localhost:3000/ItemsData'
 
 
 const Search = () => {
     const [value, setValue] = useState('')
-    const [itemsList, setItemsList] = useState(null)
-
-    useEffect(() => {
-        fetch(ITEMSDATA+'?title_like='+value)
-            .then(response => response.json())
-            .then(result => {
-            })
-            .catch(e=> console.log(e))
-    }, [ITEMSDATA]);
+    let {itemsList, isLoading} = useFetch(ITEMSDATA)
 
     // example  http://localhost:3000/customer?name_like=rist
 
-    //получить все товары
-    useEffect(() => {
-        fetch(ITEMSDATA)
-            .then(response => response.json())
-            // .then(json=> {console.log(json)})
-            .then(result => {
-                setItemsList(result)
-            })
-            .catch(e=> console.log(e))
-    }, []);
+    if (isLoading) {
+        return <div>Загружаем товары...</div>;
+    }
 
     return (
         <div className={'searchField'}>

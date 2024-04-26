@@ -67,6 +67,7 @@ const ItemPage = () => {
                     'Content-type': 'application/json; charset=UTF-8',
                 }
             })
+            alert('добавлено!')
         }
     }
 

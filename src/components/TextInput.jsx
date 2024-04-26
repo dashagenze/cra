@@ -13,8 +13,7 @@ function TextInput ( {item, setItem, addItem}) {
                     setItem(e.target.value)
                 }}
             />
-            <button className={'btn'} onClick={addItem}>добавить</button>
-
+            <button className={'listBtn'} onClick={addItem}>добавить</button>
 
         </div>
     )

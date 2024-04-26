@@ -43,5 +43,22 @@
       "price": 333
     }
   ],
-  "CartItems": []
+  "CartItems": [
+    {
+      "id": "5",
+      "title": "Logitech Мышь беспроводная lift vertical, светло-розовый",
+      "price": 7281,
+      "img": "mouse.png",
+      "amount": 2,
+      "isInCart": true
+    },
+    {
+      "id": "1",
+      "title": "Очки для компьютера Xiaomi MiJia Blu-ray Goggles Pro Transparent (HMJ02TS) Clear",
+      "price": 1771,
+      "img": "xiaomi.jpg",
+      "amount": 1,
+      "isInCart": true
+    }
+  ]
 }

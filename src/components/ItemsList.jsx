@@ -1,14 +1,13 @@
 import {Link} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import '../App.css';
-import useTest from "../hooks/useTest";
+import useFetch from "../hooks/useFetch";
 
 const ITEMSDATA = 'http://localhost:3000/ItemsData/';
 
 const ItemsList = () => {
 
-    let {itemsList, isLoading} = useTest(ITEMSDATA)
-    console.log(itemsList)
+    let {itemsList, isLoading} = useFetch(ITEMSDATA)
 
     if (isLoading) {
         return <div>Загружаем товары...</div>;
